@@ -15,14 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from posts.views import main_view, google_redirect_view, youtube_redirect_view, view_hello, view_now_date, view_goodby
+from posts.views import main_view, posts_view
+from products.views import products_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view),
-    path('google/', google_redirect_view),
-    path('youtube/', youtube_redirect_view),
-    path('hello/', view_hello),
-    path('now_date/', view_now_date),
-    path('goodby/', view_goodby)
+    path('posts/', posts_view),
+    path('products/', products_view),
 ]

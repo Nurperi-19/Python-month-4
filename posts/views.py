@@ -1,23 +1,15 @@
-import datetime
-from django.shortcuts import HttpResponse, redirect
-
+from django.shortcuts import render
+from posts.models import Post
 # Create your views here.
 
 def main_view(request):
-    return HttpResponse("Hello! It's my first view!")
+    return render(request, 'layouts/index.html')
 
-def google_redirect_view(request):
-    return redirect('https://google.com')
+def posts_view(request):
+    if request.method == 'GET':
+        posts = Post.objects.all()
+        return render(request, 'posts/posts.html', context={
+            'posts': posts
+        })
 
-def youtube_redirect_view(request):
-    return redirect('https://youtube.com')
 
-def view_hello(request):
-    return HttpResponse("Hello! It's my project")
-
-def view_now_date(request):
-    current_date = datetime.datetime.today().date()
-    return HttpResponse(f'Current date: \n{current_date}')
-
-def view_goodby(request):
-    return HttpResponse("Goodby user!")
