@@ -10,3 +10,8 @@ class Product(models.Model):
     description = models.TextField()
     rate = models.FloatField()
     price = models.FloatField()
+
+class Review(models.Model):
+    review = models.ForeignKey(Product, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateField(auto_now=True)

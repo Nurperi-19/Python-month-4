@@ -10,13 +10,8 @@ class Post(models.Model):
     created_date = models.DateField(auto_now=True)
     modified_date = models.DateField(auto_now_add=True)
 
-
-# class Product(models.Model):
-#     category = models.CharField(max_length=255)
-#     image = models.ImageField(blank=True, null=True)
-#     name = models.CharField(max_length=255)
-#     color = models.TextField()
-#     description = models.TextField()
-#     rate = models.FloatField()
-#     price = models.FloatField()
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateField(auto_now=True)
 
