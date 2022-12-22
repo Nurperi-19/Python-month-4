@@ -25,6 +25,16 @@
     <div class='product_block'>
         <h1>{{ product.name }}</h1>
         <h5>{{ product.description }}</h5>
+        {% for category in categories %}
+            <div class="category">
+                <h6>{{ category.title }}</h6>
+            </div>
+        {% endfor %}
+        <div class="dates">
+            <h5>{{ post.created_date }}</h5>
+            <h5>{{ post.modified_date }}</h5>
+        </div>
+        </div>
         <div class="dates">
         </div>
         <div class="reviews">

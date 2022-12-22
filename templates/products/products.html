@@ -4,18 +4,26 @@
 
     <style type="text/css">
         .posts {
-            width: 90%;
+            width: 80%;
             margin-left: 10%;
             padding: 10px;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
+        .card-body img {
+            width: 100%;
+        }
     </style>
     <div class="posts">
         {% for product in products %}
             <div class="card" style="width: 18rem;">
               <div class="card-body">
+                  {% if product.image %}
+                      <img src="/media/{{ product.image }}/" alt="not found">
+                  {% else %}
+                      <img src="/media/default-image.jpg" alt="">
+                  {% endif %}
                 <h5 class="card-title">{{ product.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ product.category }}</h6>
                 <a href="/products/{{ product.id }}/" class="card-link">More</a>

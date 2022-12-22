@@ -1,0 +1,12 @@
+{% extends 'layouts/index.html' %}
+
+{% block content %}
+    {% for hashtag in hashtags %}
+        <h6>
+            <a href="/posts/?hashtag_id={{ hashtag.id }}">
+                {{ hashtag.title }}
+            </a>
+        </h6>
+    {% endfor %}
+{% endblock %}
+
