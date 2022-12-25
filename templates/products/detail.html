@@ -21,22 +21,31 @@
             margin-bottom: 10px;
             padding: 10px;
         }
+        .product_block img {
+            width: 50%;
+        }
     </style>
     <div class='product_block'>
+        {% if product.image %}
+            <img src="/media/{{ product.image }}/" alt="not found ">
+        {% else %}
+            <img src="/media/default-image.jpg" alt="">
+        {% endif %}
+
         <h1>{{ product.name }}</h1>
         <h5>{{ product.description }}</h5>
         {% for category in categories %}
-            <div class="category">
-                <h6>{{ category.title }}</h6>
-            </div>
+            <h6>{{ category.title }}</h6>
         {% endfor %}
         <div class="dates">
             <h5>{{ post.created_date }}</h5>
             <h5>{{ post.modified_date }}</h5>
         </div>
-        </div>
-        <div class="dates">
-        </div>
+        <form action="/products/{{ product.id }}/" method="post">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <input type="submit">
+        </form>
         <div class="reviews">
             {% for review in reviews %}
                 <div class="review_block">

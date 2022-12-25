@@ -10,13 +10,12 @@ class Product(models.Model):
     category = models.CharField(max_length=255)
     image = models.ImageField(blank=True, null=True)
     name = models.CharField(max_length=255)
-    color = models.TextField()
+    color = models.TextField(blank=True, null=True)
     description = models.TextField()
-    rate = models.FloatField()
     price = models.FloatField()
     categories = models.ManyToManyField(Category)
 
 class Review(models.Model):
-    review = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateField(auto_now=True)

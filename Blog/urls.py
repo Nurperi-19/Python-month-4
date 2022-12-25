@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from posts.views import main_view, posts_view,  post_detail_view, hashtags_view
-from products.views import products_view, product_detail_view, categories_view
+from posts.views import main_view, posts_view,  post_detail_view, hashtags_view, post_create_view
+from products.views import products_view, product_detail_view, categories_view, product_create_view
 from Blog import settings
 from django.conf.urls.static import static
 
@@ -26,8 +26,10 @@ urlpatterns = [
     path('posts/', posts_view),
     path('products/', products_view),
     path('posts/<int:id>/', post_detail_view),
-    path('products/<int:id>/', product_detail_view),
+    path('posts/create/', post_create_view),
     path('hashtags/', hashtags_view),
+    path('products/<int:id>/', product_detail_view),
+    path('products/create/', product_create_view),
     path('categories/', categories_view)
 
 ]
