@@ -2,6 +2,7 @@ from django import forms
 
 
 class PostCreateForm(forms.Form):
+    image = forms.FileField()
     title = forms.CharField(max_length=20)
     description = forms.CharField(widget=forms.Textarea())
     rate = forms.FloatField(max_value=10)

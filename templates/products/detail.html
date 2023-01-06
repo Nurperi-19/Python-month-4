@@ -1,30 +1,11 @@
 {% extends 'layouts/index.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'products.css' %}">
+{% endblock %}
 
 {% block content %}
-    <style type="text/css">
-        .product_block {
-            width: 80%;
-            margin-left: 10%;
-            padding: 10px;
-        }
-        .dates {
-            display: flex;
-            justify-content: space-between;
-        }
-        .reviews {
-            margin-top: 10px;
-        }
-        .review_block {
-            border: 1px solid #242b2e;
-            background: #cbcbcb;
-            color: #242b2e;
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-        .product_block img {
-            width: 50%;
-        }
-    </style>
     <div class='product_block'>
         {% if product.image %}
             <img src="/media/{{ product.image }}/" alt="not found ">
