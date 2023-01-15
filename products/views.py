@@ -58,6 +58,7 @@ class ProductDetailView(DetailView):
     context_object_name = 'product'
 
 
+
 # def product_detail_view(request, id):
 #     if request.method == 'GET':
 #         product = Product.objects.get(id=id)
